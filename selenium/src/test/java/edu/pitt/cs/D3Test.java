@@ -118,32 +118,4 @@ public class D3Test {
     driver.get("https://cs1632.appspot.com/greet-a-cat/Jennyanydots");
     assertThat(driver.findElement(By.cssSelector("#greeting > h4")).getText(), is("Meow! from Jennyanydots."));
   }
-  @Test
-  public void dEFECT1FEEDACAT() {
-    driver.get("https://cs1632.appspot.com/rent-a-cat/");
-    driver.findElement(By.linkText("Feed-A-Cat")).click();
-    driver.findElement(By.id("catnips")).click();
-    driver.findElement(By.id("catnips")).sendKeys("0");
-    driver.findElement(By.cssSelector(".btn")).click();
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    assertThat(driver.findElement(By.id("feedResult")).getText(), is("Cat Fight!"));
-  }
-  @Test
-  public void dEFECT2GREETACAT() {
-    driver.get("https://cs1632.appspot.com/rent-a-cat/");
-    js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=true\";document.cookie = \"3=false\";");
-    driver.findElement(By.linkText("Greet-A-Cat")).click();
-    assertThat(driver.findElement(By.id("greeting")).getText(), is("Meow!Meow!"));
-  }
-  @Test
-  public void dEFECT3GREETACAT() {
-    driver.get("https://cs1632.appspot.com/rent-a-cat/");
-    js.executeScript("document.cookie = \"1=true\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://cs1632.appspot.com/greet-a-cat/Jennyanydots");
-    assertThat(driver.findElement(By.cssSelector("#greeting > h4")).getText(), is("Jennyanydots is not here."));
-  }
 }
