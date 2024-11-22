@@ -29,7 +29,7 @@ jobs:
           cache: maven
 
       - name: Wait For Webserver
-        run: bash wait-for-webserver.sh
+        run: /bin/sh/ wait-for-webserver.sh
 
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v3
